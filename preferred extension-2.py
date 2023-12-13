@@ -4,16 +4,19 @@ def conflict_free(arguments, attacks):
     
     cf.append('')
     for i in range(len(arguments)):
-        if (arguments[i], arguments[i]) not in attacks:
+        if [arguments[i], arguments[i]] not in attacks:
             cf.append(arguments[i])
-            #print(f'Added {arguments[i]} to the conflict-free set')
+            # print(f'Added {arguments[i]} to the conflict-free set')
 
         for j in range(i + 1, len(arguments)):
-            if (arguments[i], arguments[j]) not in attacks and (arguments[j], arguments[i]) not in attacks and (arguments[i], arguments[i]) not in attacks and (arguments[j], arguments[j]) not in attacks:
-                cf.append((arguments[i], arguments[j]))
+            if [arguments[i], arguments[j]] not in attacks and [arguments[j], arguments[i]] not in attacks and [arguments[i], arguments[i]] not in attacks and [arguments[j], arguments[j]] not in attacks:
+                cf.append([arguments[i], arguments[j]])
                 #print(f'Added {arguments[i]} and {arguments[j]} to the conflict-free set')
     
     return cf
+
+
+
 
 def defended(arguments,attacks):
     defended = []
@@ -48,7 +51,7 @@ def defended(arguments,attacks):
                     #print(attr)
         if len(attr) == 0 and arguments[i] not in defended:
             defended.append(arguments[i])
-            print(f'{arguments[i]} is defended')
+            #print(f'{arguments[i]} is defended')
 
     return defended
 
@@ -84,7 +87,30 @@ def preferred(arguments,attacks):
     
     return(preferred)
 
+### EXAMPLE ###
+
+{
+    "Arguments" : {
+        "0": "We should go to the cinema.",
+        "1": "We should go to the gym.",
+        "2": "The gym is better for the health than the cinema.",
+        "3": "We have no time for evening activities, since there is an exam coming up.",
+        "4": "The exam is in a few weeks.",
+        "5": "We have no money for cinema or gym.",
+        "6": "We just got our sallaries."
+    },
+    
+    "Attack Relations" : [
+        ["0","1"], ["1","0"], ["2","0"], 
+        ["3","0"], ["3","1"], ["4","3"],
+        ["5","0"], ["5","1"], ["6","5"]
+    ]
+}
+
+
+
 arguments = ['a', 'b', 'c', 'd', 'e']
-attacks = [('a', 'b'), ('c', 'b'), ('c', 'd'), ('d', 'c'), ('d', 'e'), ('e', 'e')]
+attacks = [['a', 'b'], ['c', 'b'], ['c', 'd'], ['d', 'c'], ['d', 'e'], ['e', 'e']]
+#attacks = [('a', 'b'), ('c', 'b'), ('c', 'd'), ('d', 'c'), ('d', 'e'), ('e', 'e')]
 
 preferred(arguments, attacks)
