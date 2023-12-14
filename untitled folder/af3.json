@@ -1,0 +1,14 @@
+{
+    "Arguments" : {
+        "a": "example1",
+        "b": "example2",
+        "c": "example3",
+        "d": "example4",
+        "e": "example5"
+    },
+
+    "Attack Relations" : [
+        ["a","b"], ["b","a"], ["b","c"],
+        ["c","d"], ["d","e"], ["e","c"]
+    ]
+}

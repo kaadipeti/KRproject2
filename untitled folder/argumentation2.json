@@ -1,0 +1,14 @@
+{
+    "Arguments": {
+        "a": "Cats are better than dogs, because they are clean.",
+        "b": "Dogs are better than cats.",
+        "c": "Cats are better than dogs, because they are independent, which is good.",
+        "d": "Independence is not important, because it makes cats aloof and selfish.",
+        "e": "Independence and cleanliness are important, but not for pets."
+    },
+    
+    "Attack Relations" : [
+        ["a","b"], ["c","b"], ["c","d"], 
+        ["d","c"], ["d","e"], ["e","e"]
+    ]
+}

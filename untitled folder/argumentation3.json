@@ -1,0 +1,14 @@
+{
+    "Arguments" : {
+        "a": "Water puts out fire.",
+        "b": "Fire destroys paper and boils water.",
+        "c": "Paper beats rock.",
+        "d": "Rock beats scissors.",
+        "e": "Scissors beats paper."
+    },
+    
+    "Attack Relations" : [
+        ["a","b"], ["b","a"], ["b","c"], 
+        ["c","d"], ["d","e"], ["e","c"]
+    ]
+}
